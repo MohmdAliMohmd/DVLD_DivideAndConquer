@@ -17,6 +17,7 @@ namespace DVDL_V0._01.Global_Classes
             TextBox Temp = ((TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
             {
+                Temp.Focus();
                 e.Cancel = true;
                 return true;
             }

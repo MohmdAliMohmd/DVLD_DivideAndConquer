@@ -73,6 +73,206 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+        public static bool GetPersonByNationalNo( string NationalNo, ref int PersonID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+            string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@NationalNo", NationalNo);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                PersonID = (int)reader["PersonID"];
+                                FirstName = (string)reader["FirstName"];
+                                SecondName = (string)reader["SecondName"];
+
+                                if (reader["ThirdName"] != DBNull.Value)
+                                    ThirdName = (string)reader["ThirdName"];
+                                else
+                                    ThirdName = "";
+
+                                LastName = (string)reader["LastName"];
+                                DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                Gendor = (byte)reader["Gendor"];
+                                Address = (string)reader["Address"];
+                                Phone = (string)reader["Phone"];
+
+                                if (reader["Email"] != DBNull.Value)
+                                    Email = (string)reader["Email"];
+                                else
+                                    Email = "";
+
+                                NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                                if (reader["ImagePath"] != DBNull.Value)
+                                    ImagePath = (string)reader["ImagePath"];
+                                else
+                                    ImagePath = "";
+
+                            }
+                            else
+                            {
+                                isFound = false;
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
+        }
+
+        public static bool GetPersonByPhone( string Phone, ref int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+            string query = "SELECT * FROM People WHERE Phone = @Phone";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Phone", Phone);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                PersonID = (int)reader["PersonID"];
+                                NationalNo = (string)reader["NationalNo"];
+                                FirstName = (string)reader["FirstName"];
+                                SecondName = (string)reader["SecondName"];
+
+                                if (reader["ThirdName"] != DBNull.Value)
+                                    ThirdName = (string)reader["ThirdName"];
+                                else
+                                    ThirdName = "";
+
+                                LastName = (string)reader["LastName"];
+                                DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                Gendor = (byte)reader["Gendor"];
+                                Address = (string)reader["Address"];
+                                
+
+                                if (reader["Email"] != DBNull.Value)
+                                    Email = (string)reader["Email"];
+                                else
+                                    Email = "";
+
+                                NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                                if (reader["ImagePath"] != DBNull.Value)
+                                    ImagePath = (string)reader["ImagePath"];
+                                else
+                                    ImagePath = "";
+
+                            }
+                            else
+                            {
+                                isFound = false;
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
+        }
+        public static bool GetPersonByEmail( string Email, ref int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address, ref string Phone,  ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+            string query = "SELECT * FROM People WHERE Email = @Email";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Email", Email);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                PersonID = (int)reader["PersonID"];
+                                NationalNo = (string)reader["NationalNo"];
+                                FirstName = (string)reader["FirstName"];
+                                SecondName = (string)reader["SecondName"];
+
+                                if (reader["ThirdName"] != DBNull.Value)
+                                    ThirdName = (string)reader["ThirdName"];
+                                else
+                                    ThirdName = "";
+
+                                LastName = (string)reader["LastName"];
+                                DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                Gendor = (byte)reader["Gendor"];
+                                Address = (string)reader["Address"];
+                                Phone = (string)reader["Phone"];
+
+                               
+                                NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                                if (reader["ImagePath"] != DBNull.Value)
+                                    ImagePath = (string)reader["ImagePath"];
+                                else
+                                    ImagePath = "";
+
+                            }
+                            else
+                            {
+                                isFound = false;
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
+        }
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName, DateTime DateOfBirth, byte Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             int PersonID = -1;
@@ -267,6 +467,99 @@ namespace DVLD_DataAccess
             }
 
             return dt;
+        }
+
+        public static bool IsPersonExist(string NationalNo)
+        {
+            bool isFound = false;
+            string query = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@NationalNo", NationalNo);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            isFound = reader.HasRows;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
+        }
+
+        public static bool IsPersonExistByPhone(string Phone)
+        {
+            bool isFound = false;
+            string query = "SELECT Found=1 FROM People WHERE Phone = @Phone";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Phone", Phone);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            isFound = reader.HasRows;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
+        }
+
+        public static bool IsPersonExistByEmail(string Email)
+        {
+            bool isFound = false;
+            string query = "SELECT Found=1 FROM People WHERE Email = @Email";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Email", Email);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            isFound = reader.HasRows;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+
+            }
+
+            return isFound;
         }
     }
 }

@@ -128,5 +128,42 @@ namespace DVLD_Business
         {
             return clsPersonData.GetAllPeople();
         }
+
+        public static bool IsPersonExist(string NationalNo)
+        {
+            return clsPersonData.IsPersonExist(NationalNo);
+        }
+        public static clsPerson Find(string NationalNo)
+        {
+            int PersonID = -1;
+            string FirstName = "";
+            string SecondName = "";
+            string ThirdName = "";
+            string LastName = "";
+            DateTime DateOfBirth = DateTime.MinValue;
+            byte Gendor = 0;
+            string Address = "";
+            string Phone = "";
+            string Email = "";
+            int NationalityCountryID = -1;
+            string ImagePath = "";
+
+            bool IsFound = clsPersonData.GetPersonByNationalNo( NationalNo, ref PersonID, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath);
+
+            if (IsFound)
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
+            else
+                return null;
+        }
+
+        public static bool IsPersonExistByPhone(string Phone)
+        {
+            return clsPersonData.IsPersonExistByPhone(Phone);
+        }
+
+        public static bool IsPersonExistByEmail(string Email)
+        {
+            return clsPersonData.IsPersonExistByEmail(Email);
+        }
     }
 }
