@@ -99,6 +99,8 @@ namespace DVLD_DivideAndConquer.People.Controls
         }
         void _FillPersonInfo()
         {
+            llblEditPersonInfo.Enabled = true;
+            _PersonID = _Person.PersonID;
             lblPersonID.Text = _Person.PersonID.ToString();
             lblFullName.Text = _Person.FullName;
 

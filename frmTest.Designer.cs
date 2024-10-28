@@ -34,15 +34,20 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlPersonCard1 = new DVLD_DivideAndConquer.People.Controls.ctrlPersonCard();
             this.txtPersonID = new System.Windows.Forms.TextBox();
             this.btnShowPersonInfo = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPeopleList = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.ctrlPersonCard1 = new DVLD_DivideAndConquer.People.Controls.ctrlPersonCard();
             this.ctrlPersonCardWithFilter1 = new DVLD_DivideAndConquer.People.Controls.ctrlPersonCardWithFilter();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ctrlUserCard1 = new DVLD_DivideAndConquer.User.Controls.ctrlUserCard();
             this.tcTestPersonControls.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddPerson
@@ -69,6 +74,7 @@
             // 
             this.tcTestPersonControls.Controls.Add(this.tabPage1);
             this.tcTestPersonControls.Controls.Add(this.tabPage2);
+            this.tcTestPersonControls.Controls.Add(this.tabPage3);
             this.tcTestPersonControls.Location = new System.Drawing.Point(31, 89);
             this.tcTestPersonControls.Name = "tcTestPersonControls";
             this.tcTestPersonControls.SelectedIndex = 0;
@@ -110,16 +116,6 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "PersonID: ";
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(16, 84);
-            this.ctrlPersonCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.PersonID = -1;
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(1048, 344);
-            this.ctrlPersonCard1.TabIndex = 6;
-            // 
             // txtPersonID
             // 
             this.txtPersonID.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,6 +147,36 @@
             this.tabPage2.Text = "TestPerson Card With Filter";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnPeopleList
+            // 
+            this.btnPeopleList.Location = new System.Drawing.Point(398, 12);
+            this.btnPeopleList.Name = "btnPeopleList";
+            this.btnPeopleList.Size = new System.Drawing.Size(178, 68);
+            this.btnPeopleList.TabIndex = 7;
+            this.btnPeopleList.Text = "Show People List";
+            this.btnPeopleList.UseVisualStyleBackColor = true;
+            this.btnPeopleList.Click += new System.EventHandler(this.btnPeopleList_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(582, 15);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(178, 68);
+            this.btnTest.TabIndex = 8;
+            this.btnTest.Text = "String.Empty ==\"?";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(16, 84);
+            this.ctrlPersonCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.PersonID = -1;
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(1048, 344);
+            this.ctrlPersonCard1.TabIndex = 6;
+            // 
             // ctrlPersonCardWithFilter1
             // 
             this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
@@ -163,11 +189,33 @@
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1011, 422);
             this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.ctrlUserCard1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1051, 454);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Test User Card";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ctrlUserCard1
+            // 
+            this.ctrlUserCard1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlUserCard1.Location = new System.Drawing.Point(14, 2);
+            this.ctrlUserCard1.Margin = new System.Windows.Forms.Padding(6);
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(1023, 443);
+            this.ctrlUserCard1.TabIndex = 0;
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 689);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.btnPeopleList);
             this.Controls.Add(this.tcTestPersonControls);
             this.Controls.Add(this.btnEditPerson);
             this.Controls.Add(this.btnAddPerson);
@@ -180,6 +228,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,5 +246,9 @@
         private System.Windows.Forms.TextBox txtPersonID;
         private System.Windows.Forms.Button btnShowPersonInfo;
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
+        private System.Windows.Forms.Button btnPeopleList;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.TabPage tabPage3;
+        private User.Controls.ctrlUserCard ctrlUserCard1;
     }
 }

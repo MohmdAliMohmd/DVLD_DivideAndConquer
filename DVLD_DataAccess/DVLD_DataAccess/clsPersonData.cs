@@ -440,8 +440,22 @@ namespace DVLD_DataAccess
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM People";
-            try{
+            string query = @"SELECT People.PersonID, People.NationalNo,
+              People.FirstName, People.SecondName, People.ThirdName, People.LastName,
+			  People.DateOfBirth, People.Gendor,  
+				  CASE
+                  WHEN People.Gendor = 0 THEN 'Male'
+
+                  ELSE 'Female'
+
+                  END as GendorCaption ,
+			  People.Address, People.Phone, People.Email, 
+              People.NationalityCountryID, Countries.CountryName, People.ImagePath
+              FROM            People INNER JOIN
+                         Countries ON People.NationalityCountryID = Countries.CountryID
+                ORDER BY People.FirstName";
+            try
+            {
                     using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                     {
                         using(SqlCommand command = new SqlCommand(query, connection))

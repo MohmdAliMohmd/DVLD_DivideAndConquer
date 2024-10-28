@@ -40,7 +40,23 @@ namespace DVLD_DivideAndConquer
         {
             ctrlPersonCard1.PersonID = Convert.ToInt32(txtPersonID.Text.Trim());
         }
-        
-        
+
+        private void btnPeopleList_Click(object sender, EventArgs e)
+        {
+            frmPeopleList frm = new frmPeopleList();
+            frm.Show();
+
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            string str1 = string.Empty;
+            string str2 = "";
+
+            if (str1.Equals(str2))
+                MessageBox.Show("Yes");
+            else
+                MessageBox.Show("No");
+        }
     }
 }
