@@ -58,5 +58,20 @@ namespace DVLD_DivideAndConquer
             else
                 MessageBox.Show("No");
         }
+
+        private void btnShowUserInfo_Click(object sender, EventArgs e)
+        {
+            ctrlUserCard1.LoadUserInfo(int.Parse(txtUserID.Text.Trim()));
+        }
+
+        private void txtPersonID_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtUserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

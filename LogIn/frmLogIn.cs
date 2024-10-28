@@ -80,5 +80,18 @@ namespace WindowsFormsApp1.LogIn
             txtPassword.Text = string.Empty;
             chkRememberMe.Checked = false;
         }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPassword.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+                txtPassword.UseSystemPasswordChar = true;
+        }
+
+      
     }
 }

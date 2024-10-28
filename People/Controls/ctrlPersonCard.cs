@@ -36,7 +36,7 @@ namespace DVLD_DivideAndConquer.People.Controls
                 }
                 else
                 {
-                    _LoadDefaultValues();
+                    LoadDefaultValues();
                 }
             }
         }
@@ -78,7 +78,7 @@ namespace DVLD_DivideAndConquer.People.Controls
             }
 
         }
-        void _LoadDefaultValues()
+        public void LoadDefaultValues()
         {
             lblPersonID.Text = "[????]";
             lblFullName.Text = "[????]"; ;
@@ -118,7 +118,7 @@ namespace DVLD_DivideAndConquer.People.Controls
             _Person = clsPerson.Find(PersonID);
             if (_Person == null)
             {
-                _LoadDefaultValues();
+                LoadDefaultValues();
                 MessageBox.Show($"There is no Person with Person ID = {PersonID}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -131,7 +131,7 @@ namespace DVLD_DivideAndConquer.People.Controls
             _Person = clsPerson.Find(NationalNO);
             if(_Person == null)
             {
-                _LoadDefaultValues();
+                LoadDefaultValues();
                 MessageBox.Show($"There is no Person with National No. = {NationalNO}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

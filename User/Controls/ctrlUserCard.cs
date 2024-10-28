@@ -29,5 +29,36 @@ namespace DVLD_DivideAndConquer.User.Controls
         {
             InitializeComponent();
         }
+
+        void _LoadDefaultValues()
+
+        {
+            txtUsername.Text = "????";
+            txtPassword.Text = "????";
+            lblIsActive.Text = "????";
+            ctrlPersonCard1.LoadDefaultValues();
+        }
+
+        void _FillUsuerInfo()
+        {
+            ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
+            txtUsername.Text = _User.UserName;
+            txtPassword.Text = _User.Password;
+            if (_User.IsActive)
+                lblIsActive.Text = "Yes";
+            else
+                lblIsActive.Text = "No";
+        }
+      public  void LoadUserInfo(int UserID)
+        {
+            _User = clsUser.Find(UserID);
+            if(_User == null)
+            {
+                MessageBox.Show($"No User with UserID: {UserID} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _LoadDefaultValues();
+                return;
+            }
+            _FillUsuerInfo();
+        }
     }
 }

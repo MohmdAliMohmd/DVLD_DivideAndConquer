@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_DivideAndConquer.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +18,10 @@ namespace DVLD_DivideAndConquer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogIn());
-            Application.Run(new frmTest());
+            //Application.Run(new frmLogIn());
+            //Application.Run(new frmTest());
+            Application.Run(new frmAddEditUser(1));
+
         }
     }
 }
