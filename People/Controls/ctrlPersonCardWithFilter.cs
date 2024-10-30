@@ -154,12 +154,19 @@ namespace DVLD_DivideAndConquer.People.Controls
         }
         private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e)
         {
-            cbxFilterBy.SelectedIndex = 0;
+            cbxFilterBy.SelectedIndex = 1;
         }
 
         private void cbxFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFilterValue.Clear();
+        }
+        public void LoadDefaultValues()
+        {
+            cbxFilterBy.SelectedIndex = 1;
+            txtFilterValue.Clear();
+            ctrlPersonCard1.LoadDefaultValues();
+            txtFilterValue.Focus();
         }
     }
 }

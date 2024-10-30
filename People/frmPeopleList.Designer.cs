@@ -43,11 +43,11 @@
             this.cbxFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.btnAddPerson = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvPeopleList = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAddPerson = new System.Windows.Forms.Button();
             this.cmsPeopleList.SuspendLayout();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
@@ -180,7 +180,7 @@
             this.gbFilter.Controls.Add(this.cbxFilterBy);
             this.gbFilter.Controls.Add(this.label2);
             this.gbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFilter.Location = new System.Drawing.Point(5, 58);
+            this.gbFilter.Location = new System.Drawing.Point(3, 58);
             this.gbFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -188,6 +188,18 @@
             this.gbFilter.TabIndex = 15;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter";
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPerson.Image = global::DVLD_DivideAndConquer.Properties.Resources.AddPerson_34;
+            this.btnAddPerson.Location = new System.Drawing.Point(545, 15);
+            this.btnAddPerson.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(49, 36);
+            this.btnAddPerson.TabIndex = 3;
+            this.btnAddPerson.UseVisualStyleBackColor = true;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // label3
             // 
@@ -206,7 +218,7 @@
             this.dgvPeopleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeopleList.ContextMenuStrip = this.cmsPeopleList;
             this.dgvPeopleList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPeopleList.Location = new System.Drawing.Point(4, 126);
+            this.dgvPeopleList.Location = new System.Drawing.Point(1, 126);
             this.dgvPeopleList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.Size = new System.Drawing.Size(1372, 276);
@@ -240,23 +252,11 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPerson.Image = global::DVLD_DivideAndConquer.Properties.Resources.AddPerson_34;
-            this.btnAddPerson.Location = new System.Drawing.Point(545, 15);
-            this.btnAddPerson.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(49, 36);
-            this.btnAddPerson.TabIndex = 3;
-            this.btnAddPerson.UseVisualStyleBackColor = true;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
-            // 
             // frmPeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 450);
+            this.ClientSize = new System.Drawing.Size(1375, 450);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblRecordsCount);

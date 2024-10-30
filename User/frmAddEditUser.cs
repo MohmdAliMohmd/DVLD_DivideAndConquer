@@ -38,6 +38,7 @@ namespace DVLD_DivideAndConquer.User
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
+            _User = new clsUser();
            
         }
         public frmAddEditUser(int UserID)
@@ -49,16 +50,18 @@ namespace DVLD_DivideAndConquer.User
 
         void _SetTitle()
         {
-            lblTitle.Text = (_Mode == enMode.AddNew) ? "Add User" : "Edit User";
+            lblTitle.Text = (_Mode == enMode.AddNew) ? "Add New User" : "Edit User";
         }
 
         void _LoadDefaultValues()
         {
             _SetTitle();
+            lblTitle.BackColor = Color.LightSteelBlue;
             tpLogInInfo.Enabled = false;
             btnSave.Enabled = false;
             btnNext.Enabled = false;
-            ctrlPersonCardWithFilter1.FilterFocus();
+            ctrlPersonCardWithFilter1.LoadDefaultValues();
+            
         }
 
         void _FillUserInfo()
@@ -117,10 +120,7 @@ namespace DVLD_DivideAndConquer.User
             this.Close();
         }
 
-        private void chkIsActive_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -152,11 +152,121 @@ namespace DVLD_DivideAndConquer.User
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             _ValidatePassWord();
+            btnSave.Enabled = _ReadyToSave();
         }
 
         private void txtConfirmPW_TextChanged(object sender, EventArgs e)
         {
             _ValidatePassWord();
+            btnSave.Enabled = _ReadyToSave();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLogInInfo"];
+        }
+
+        private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
+        {
+           if(ctrlPersonCardWithFilter1.PersonID != -1) 
+            {
+                if (clsUser.IsUserExistForPersonID(ctrlPersonCardWithFilter1.PersonID))
+                {
+                    lblTitle.BackColor = Color.Salmon;
+                    lblTitle.Text += "  == Already a User ==";
+                    MessageBox.Show("Selected Person already has a user, choose another one.", "Select another Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ctrlPersonCardWithFilter1.FilterFocus();
+
+                }
+                else
+                {
+                    _SetTitle();
+                    lblTitle.BackColor = Color.LightGreen;
+                    btnNext.Enabled = true;
+                    tpLogInInfo.Enabled = true;
+                    btnSave.Enabled = false;
+                }
+            }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = _ReadyToSave();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            _User.PersonID = ctrlPersonCardWithFilter1.PersonID;
+            _User.UserName = txtUsername.Text.Trim();
+            _User.Password = txtPassword.Text.Trim();
+            _User.IsActive = chkIsActive.Checked;
+
+            if (_User.Save())
+            {
+                
+                //change form mode to update.
+                _Mode = enMode.Update;
+                _SetTitle();
+                lblUserID.Text = _User.UserID.ToString();
+                lblTitle.BackColor = Color.LightGreen;
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            _LoadDefaultValues();
+            if (_Mode == enMode.Update)
+                _LoadUserIfo();
+           
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUsername.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtUsername, "Password cannot be blank");
+            }
+            else
+            {
+                errorProvider1.SetError(txtUsername, null);
+            };
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtPassword, "Password cannot be blank");
+            }
+            else
+            {
+                errorProvider1.SetError(txtPassword, null);
+            };
+        }
+
+        private void txtConfirmPW_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtConfirmPW.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtConfirmPW, "Password cannot be blank");
+            }
+            else
+            {
+                errorProvider1.SetError(txtConfirmPW, null);
+            };
         }
     }
 }

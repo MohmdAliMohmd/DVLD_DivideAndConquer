@@ -27,11 +27,11 @@ namespace DVLD_DivideAndConquer.People
 
         private void _RefreshPeopleList()
         {
-            _dtAllPeople = clsPerson.GetAllPeople();
-            _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
-                                                       "FirstName", "SecondName", "ThirdName", "LastName",
-                                                       "GendorCaption", "DateOfBirth", "CountryName",
-                                                       "Phone", "Email");
+            //_dtAllPeople = clsPerson.GetAllPeople();
+            //_dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+            //                                           "FirstName", "SecondName", "ThirdName", "LastName",
+            //                                           "GendorCaption", "DateOfBirth", "CountryName",
+            //                                           "Phone", "Email");
 
             dgvPeopleList.DataSource = _dtPeople;
             lblRecordsCount.Text = dgvPeopleList.Rows.Count.ToString();
@@ -214,6 +214,7 @@ Email
         {
             frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvPeopleList.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            _RefreshPeopleList();
         }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)

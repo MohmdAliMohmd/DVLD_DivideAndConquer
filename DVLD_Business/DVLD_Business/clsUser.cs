@@ -83,7 +83,7 @@ namespace DVLD_Business
             }
             return false;
         }
-        public static DataTable GetUsers()
+        public static DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();
         }

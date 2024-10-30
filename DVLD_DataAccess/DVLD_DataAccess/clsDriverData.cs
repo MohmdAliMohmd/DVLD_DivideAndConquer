@@ -177,8 +177,9 @@ namespace DVLD_DataAccess
         public static DataTable GetAllDrivers()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM Drivers";
-            try{
+            string query = "SELECT * FROM Drivers_View order by FullName";
+            try
+            {
                     using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                     {
                         using(SqlCommand command = new SqlCommand(query, connection))

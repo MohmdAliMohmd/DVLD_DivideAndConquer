@@ -1,4 +1,6 @@
-﻿using DVLD_DivideAndConquer.User;
+﻿using DVLD_DivideAndConquer.Drivers;
+using DVLD_DivideAndConquer.People;
+using DVLD_DivideAndConquer.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,10 @@ namespace DVLD_DivideAndConquer
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmLogIn());
             //Application.Run(new frmTest());
-            Application.Run(new frmAddEditUser(1));
-
+            //Application.Run(new frmAddEditUser());
+            //Application.Run(new frmChangePassword(1));
+            Application.Run(new frmPeopleList());
+            Application.Run(new frmDriversList());
         }
     }
 }

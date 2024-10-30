@@ -183,8 +183,14 @@ namespace DVLD_DataAccess
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM Users";
-            try{
+            string query = @"SELECT  Users.UserID, Users.PersonID,
+                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
+                             Users.UserName, Users.IsActive
+                             FROM  Users INNER JOIN
+                                    People ON Users.PersonID = People.PersonID";
+
+            try
+            {
                     using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                     {
                         using(SqlCommand command = new SqlCommand(query, connection))

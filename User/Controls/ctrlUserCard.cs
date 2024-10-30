@@ -33,8 +33,8 @@ namespace DVLD_DivideAndConquer.User.Controls
         void _LoadDefaultValues()
 
         {
-            txtUsername.Text = "????";
-            txtPassword.Text = "????";
+            lblUserName.Text = "????";
+            lblUserID.Text = "????";
             lblIsActive.Text = "????";
             ctrlPersonCard1.LoadDefaultValues();
         }
@@ -42,8 +42,9 @@ namespace DVLD_DivideAndConquer.User.Controls
         void _FillUsuerInfo()
         {
             ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
-            txtUsername.Text = _User.UserName;
-            txtPassword.Text = _User.Password;
+            lblUserID.Text = _User.UserID.ToString();
+            lblUserName.Text = _User.UserName;
+            
             if (_User.IsActive)
                 lblIsActive.Text = "Yes";
             else

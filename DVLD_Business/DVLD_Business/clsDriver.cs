@@ -79,7 +79,7 @@ namespace DVLD_Business
             }
             return false;
         }
-        public static DataTable GetDrivers()
+        public static DataTable GetAllDrivers()
         {
             return clsDriverData.GetAllDrivers();
         }
