@@ -15,7 +15,7 @@ namespace DVLD_Business
         public DateTime IssueDate { set; get; }
         public DateTime ExpirationDate { set; get; }
         public string Notes { set; get; }
-        public decimal PaidFees { set; get; }
+        public float PaidFees { set; get; }
         public bool IsActive { set; get; }
         public byte IssueReason { set; get; }
         public int CreatedByUserID { set; get; }
@@ -35,7 +35,7 @@ namespace DVLD_Business
             this.CreatedByUserID = -1;
             Mode = enMode.AddNew;
         }
-        private clsLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+        private clsLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             this.LicenseID = LicenseID;
             this.ApplicationID = ApplicationID;
@@ -75,7 +75,7 @@ namespace DVLD_Business
             DateTime IssueDate = DateTime.MinValue;
             DateTime ExpirationDate = DateTime.MinValue;
             string Notes = "";
-            decimal PaidFees = -1;
+            float PaidFees = -1;
             bool IsActive = false;
             byte IssueReason = 0;
             int CreatedByUserID = -1;

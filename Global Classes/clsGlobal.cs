@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DVDL_Classes
 {
@@ -70,6 +71,28 @@ namespace DVDL_Classes
                 MessageBox.Show($"An error occured : {ex.Message}");
                 return false;
             }
+        }
+
+        public static void DataGridView_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+          // DataGridView dataGridView = sender as DataGridView;
+            DataGridView dataGridView = (DataGridView)sender ;
+            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
+            //style1.ForeColor = Color.LightCyan;
+            style2.BackColor = Color.White;
+            if (e.RowIndex > -1)
+                dataGridView.Rows[e.RowIndex].DefaultCellStyle = style2;
+        }
+
+        public static void DataGridView_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //DataGridView dataGridView = sender as DataGridView;
+            DataGridView dataGridView = (DataGridView)sender;
+            DataGridViewCellStyle style1 = new DataGridViewCellStyle();
+            //style1.ForeColor = Color.LightCyan;
+            style1.BackColor = Color.LightGreen;
+            if (e.RowIndex > -1)
+                dataGridView.Rows[e.RowIndex].DefaultCellStyle = style1;
         }
     }
 }

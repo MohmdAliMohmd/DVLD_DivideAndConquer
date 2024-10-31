@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsTestTypeData
     {
-        public static bool GetTestTypeByID(int TestTypeID, ref string TestTypeTitle, ref string TestTypeDescription, ref decimal TestTypeFees)
+        public static bool GetTestTypeByID(int TestTypeID, ref string TestTypeTitle, ref string TestTypeDescription, ref float TestTypeFees)
         {
             bool isFound = false;
             string query = "SELECT * FROM TestTypes WHERE TestTypeID = @TestTypeID";
@@ -27,7 +27,7 @@ namespace DVLD_DataAccess
         
                     TestTypeTitle = (string)reader["TestTypeTitle"];
                     TestTypeDescription = (string)reader["TestTypeDescription"];
-                    TestTypeFees = (decimal)reader["TestTypeFees"];
+                    TestTypeFees = (float)reader["TestTypeFees"];
                          }
                         else
                          {
@@ -49,7 +49,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewTestType(string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        public static int AddNewTestType(string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
         {
             int TestTypeID = -1;
              string query = @"INSERT INTO TestTypes (TestTypeTitle, TestTypeDescription, TestTypeFees)
@@ -84,7 +84,7 @@ namespace DVLD_DataAccess
 
             return TestTypeID;
         }
-        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
         {
             int rowsAffected = 0;
             string query = @"UPDATE TestTypes  

@@ -10,7 +10,7 @@ namespace DVLD_Business
         public enMode Mode = enMode.AddNew;
         public int ApplicationTypeID { set; get; }
         public string ApplicationTypeTitle { set; get; }
-        public decimal ApplicationFees { set; get; }
+        public float ApplicationFees { set; get; }
 
         public clsApplicationType()
         {
@@ -19,7 +19,7 @@ namespace DVLD_Business
             this.ApplicationFees = -1;
             Mode = enMode.AddNew;
         }
-        private clsApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        private clsApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, float ApplicationFees)
         {
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeTitle = ApplicationTypeTitle;
@@ -46,7 +46,7 @@ namespace DVLD_Business
         public static clsApplicationType Find(int ApplicationTypeID)
         {
             string ApplicationTypeTitle = "";
-            decimal ApplicationFees = -1;
+            float ApplicationFees = -1;
 
             bool IsFound = clsApplicationTypeData.GetApplicationTypeByID(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees);
 

@@ -11,7 +11,7 @@ namespace DVLD_Business
         public int DetainID { set; get; }
         public int LicenseID { set; get; }
         public DateTime DetainDate { set; get; }
-        public decimal FineFees { set; get; }
+        public float FineFees { set; get; }
         public int CreatedByUserID { set; get; }
         public bool IsReleased { set; get; }
         public DateTime ReleaseDate { set; get; }
@@ -31,7 +31,7 @@ namespace DVLD_Business
             this.ReleaseApplicationID = -1;
             Mode = enMode.AddNew;
         }
-        private clsDetain(int DetainID, int LicenseID, DateTime DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        private clsDetain(int DetainID, int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             this.DetainID = DetainID;
             this.LicenseID = LicenseID;
@@ -65,7 +65,7 @@ namespace DVLD_Business
         {
             int LicenseID = -1;
             DateTime DetainDate = DateTime.MinValue;
-            decimal FineFees = -1;
+            float FineFees = -1;
             int CreatedByUserID = -1;
             bool IsReleased = false;
             DateTime ReleaseDate = DateTime.MinValue;

@@ -1,4 +1,5 @@
-﻿using DVLD_Business;
+﻿using DVDL_Classes;
+using DVLD_Business;
 using DVLD_DivideAndConquer.People;
 using System;
 using System.Collections.Generic;
@@ -128,20 +129,12 @@ namespace DVLD_DivideAndConquer.Drivers
 
         private void dgvDriversList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
-            //style1.ForeColor = Color.LightCyan;
-            style2.BackColor = Color.White;
-            if (e.RowIndex > -1)
-                dgvDriversList.Rows[e.RowIndex].DefaultCellStyle = style2;
+            clsGlobal.DataGridView_CellMouseLeave(sender, e);
         }
 
         private void dgvDriversList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            DataGridViewCellStyle style1 = new DataGridViewCellStyle();
-            //style1.ForeColor = Color.LightCyan;
-            style1.BackColor = Color.LightGreen;
-            if (e.RowIndex > -1)
-                dgvDriversList.Rows[e.RowIndex].DefaultCellStyle = style1;
+            clsGlobal.DataGridView_CellMouseMove(sender, e);
         }
 
         private void dgvDriversList_DoubleClick(object sender, EventArgs e)

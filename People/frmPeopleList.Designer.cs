@@ -48,6 +48,7 @@
             this.dgvPeopleList = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmsPeopleList.SuspendLayout();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
@@ -244,7 +245,7 @@
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::DVLD_DivideAndConquer.Properties.Resources.close_45;
-            this.btnClose.Location = new System.Drawing.Point(1331, 12);
+            this.btnClose.Location = new System.Drawing.Point(1319, 12);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 50);
@@ -252,11 +253,22 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1354, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(15, 42);
+            this.button1.TabIndex = 124;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
             // frmPeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblRecordsCount);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnAddPerson;
+        private System.Windows.Forms.Button button1;
     }
 }

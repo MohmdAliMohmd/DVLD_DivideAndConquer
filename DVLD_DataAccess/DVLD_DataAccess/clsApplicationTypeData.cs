@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsApplicationTypeData
     {
-        public static bool GetApplicationTypeByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        public static bool GetApplicationTypeByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref float ApplicationFees)
         {
             bool isFound = false;
             string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
@@ -26,7 +26,7 @@ namespace DVLD_DataAccess
                             isFound = true;
         
                     ApplicationTypeTitle = (string)reader["ApplicationTypeTitle"];
-                    ApplicationFees = (decimal)reader["ApplicationFees"];
+                    ApplicationFees = (float)reader["ApplicationFees"];
                          }
                         else
                          {
@@ -48,7 +48,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewApplicationType(string ApplicationTypeTitle, decimal ApplicationFees)
+        public static int AddNewApplicationType(string ApplicationTypeTitle, float ApplicationFees)
         {
             int ApplicationTypeID = -1;
              string query = @"INSERT INTO ApplicationTypes (ApplicationTypeTitle, ApplicationFees)
@@ -82,7 +82,7 @@ namespace DVLD_DataAccess
 
             return ApplicationTypeID;
         }
-        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, float ApplicationFees)
         {
             int rowsAffected = 0;
             string query = @"UPDATE ApplicationTypes  

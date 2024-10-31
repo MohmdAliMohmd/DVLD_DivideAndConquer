@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsLicenseData
     {
-        public static bool GetLicenseByID(int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref decimal PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        public static bool GetLicenseByID(int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref float PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
         {
             bool isFound = false;
             string query = "SELECT * FROM Licenses WHERE LicenseID = @LicenseID";
@@ -36,7 +36,7 @@ namespace DVLD_DataAccess
                     else
                         Notes = "";
 
-                    PaidFees = (decimal)reader["PaidFees"];
+                    PaidFees = (float)reader["PaidFees"];
                     IsActive = (bool)reader["IsActive"];
                     IssueReason = (byte)reader["IssueReason"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
@@ -61,7 +61,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+        public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int LicenseID = -1;
              string query = @"INSERT INTO Licenses (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID)
@@ -107,7 +107,7 @@ namespace DVLD_DataAccess
 
             return LicenseID;
         }
-        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int rowsAffected = 0;
             string query = @"UPDATE Licenses  

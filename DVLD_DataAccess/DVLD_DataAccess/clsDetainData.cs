@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsDetainData
     {
-        public static bool GetDetainByID(int DetainID, ref int LicenseID, ref DateTime DetainDate, ref decimal FineFees, ref int CreatedByUserID, ref bool IsReleased, ref DateTime ReleaseDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        public static bool GetDetainByID(int DetainID, ref int LicenseID, ref DateTime DetainDate, ref float FineFees, ref int CreatedByUserID, ref bool IsReleased, ref DateTime ReleaseDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
         {
             bool isFound = false;
             string query = "SELECT * FROM DetainedLicenses WHERE DetainID = @DetainID";
@@ -27,7 +27,7 @@ namespace DVLD_DataAccess
         
                     LicenseID = (int)reader["LicenseID"];
                     DetainDate = (DateTime)reader["DetainDate"];
-                    FineFees = (decimal)reader["FineFees"];
+                    FineFees = (float)reader["FineFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                     IsReleased = (bool)reader["IsReleased"];
 
@@ -69,7 +69,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewDetain(int LicenseID, DateTime DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static int AddNewDetain(int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int DetainID = -1;
              string query = @"INSERT INTO DetainedLicenses (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID)
@@ -121,7 +121,7 @@ namespace DVLD_DataAccess
 
             return DetainID;
         }
-        public static bool UpdateDetain(int DetainID, int LicenseID, DateTime DetainDate, decimal FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static bool UpdateDetain(int DetainID, int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int rowsAffected = 0;
             string query = @"UPDATE DetainedLicenses  

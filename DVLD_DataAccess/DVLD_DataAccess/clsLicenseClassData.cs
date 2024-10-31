@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsLicenseClassData
     {
-        public static bool GetLicenseClassByID(int LicenseClassID, ref string ClassName, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref decimal ClassFees)
+        public static bool GetLicenseClassByID(int LicenseClassID, ref string ClassName, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
         {
             bool isFound = false;
             string query = "SELECT * FROM LicenseClasses WHERE LicenseClassID = @LicenseClassID";
@@ -29,7 +29,7 @@ namespace DVLD_DataAccess
                     ClassDescription = (string)reader["ClassDescription"];
                     MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
                     DefaultValidityLength = (byte)reader["DefaultValidityLength"];
-                    ClassFees = (decimal)reader["ClassFees"];
+                    ClassFees = (float)reader["ClassFees"];
                          }
                         else
                          {
@@ -51,7 +51,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewLicenseClass(string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, decimal ClassFees)
+        public static int AddNewLicenseClass(string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             int LicenseClassID = -1;
              string query = @"INSERT INTO LicenseClasses (ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees)
@@ -88,7 +88,7 @@ namespace DVLD_DataAccess
 
             return LicenseClassID;
         }
-        public static bool UpdateLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, decimal ClassFees)
+        public static bool UpdateLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             int rowsAffected = 0;
             string query = @"UPDATE LicenseClasses  

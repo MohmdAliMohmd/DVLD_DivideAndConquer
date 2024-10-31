@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\ApplicationTypes\frmEditApplicationType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\frmEditApplicationType.Designer.cs">
+      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\frmApplicationTypesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\frmApplicationTypesList.Designer.cs">
+      <DependentUpon>frmApplicationTypesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\frmDriversList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +167,18 @@
     <Compile Include="User\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\ApplicationTypes\frmEditApplicationType.resx">
+      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ApplicationTypes\frmApplicationTypesList.resx">
+      <DependentUpon>frmApplicationTypesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Controls\ctrlApplicationBasicInfo.resx">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseInfo.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drivers\frmDriversList.resx">
       <DependentUpon>frmDriversList.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +257,7 @@
   <ItemGroup>
     <None Include="Resources\warning-sign.png" />
     <None Include="Resources\AddPerson-34.png" />
+    <None Include="Resources\Applicant64.png" />
     <Content Include="Resources\application -64.png" />
     <Content Include="Resources\Artboard 7 copy.png" />
     <None Include="Resources\at.png" />
@@ -230,11 +267,16 @@
     <Content Include="Resources\cancel 1 - 64.png" />
     <Content Include="Resources\cancel 1-32.png" />
     <Content Include="Resources\cancel 1.png" />
+    <None Include="Resources\cancel2-32.png" />
+    <None Include="Resources\cancel2-64.png" />
+    <None Include="Resources\cancel2-50.png" />
     <Content Include="Resources\change -45.png" />
     <Content Include="Resources\close-45.png" />
     <Content Include="Resources\close-451.png" />
     <None Include="Resources\DeletedFemaleImage.png" />
     <None Include="Resources\DeletedMaleImage.png" />
+    <None Include="Resources\Created by64.png" />
+    <None Include="Resources\created by2-64.png" />
     <Content Include="Resources\document-45.png" />
     <Content Include="Resources\Driver--64.png" />
     <Content Include="Resources\driving-test-45.png" />
@@ -247,6 +289,7 @@
     <None Include="Resources\gender1.png" />
     <None Include="Resources\home  32.png" />
     <None Include="Resources\FindPerson-34.png" />
+    <None Include="Resources\Fees64.png" />
     <Content Include="Resources\info3-45.png" />
     <None Include="Resources\international 32.png" />
     <Content Include="Resources\international-45.png" />
@@ -269,12 +312,20 @@
     <Content Include="Resources\renew-45.png" />
     <Content Include="Resources\replacement - 45.png" />
     <Content Include="Resources\retalk-45.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\save32.png" />
+    <None Include="Resources\save64.png" />
+    <None Include="Resources\save50.png" />
     <Content Include="Resources\Setting-64.png" />
     <None Include="Resources\signature.png" />
     <None Include="Resources\signature %281%29.png" />
+    <None Include="Resources\Status.png" />
+    <None Include="Resources\Status64.png" />
     <Content Include="Resources\team 64.png" />
     <None Include="Resources\UnKnown_Male.png" />
     <None Include="Resources\UnKnown_Female.png" />
+    <None Include="Resources\type64.png" />
+    <None Include="Resources\Title64.png" />
     <Content Include="Resources\Users-64.png" />
     <Content Include="Resources\Users64.png" />
   </ItemGroup>

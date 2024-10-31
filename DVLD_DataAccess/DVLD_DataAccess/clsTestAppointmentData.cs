@@ -6,7 +6,7 @@ namespace DVLD_DataAccess
 {
     public class clsTestAppointmentData
     {
-        public static bool GetTestAppointmentByID(int TestAppointmentID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref decimal PaidFees, ref int CreatedByUserID, ref bool IsLocked)
+        public static bool GetTestAppointmentByID(int TestAppointmentID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref float PaidFees, ref int CreatedByUserID, ref bool IsLocked)
         {
             bool isFound = false;
             string query = "SELECT * FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
@@ -28,7 +28,7 @@ namespace DVLD_DataAccess
                     TestTypeID = (int)reader["TestTypeID"];
                     LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
                     AppointmentDate = (DateTime)reader["AppointmentDate"];
-                    PaidFees = (decimal)reader["PaidFees"];
+                    PaidFees = (float)reader["PaidFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                     IsLocked = (bool)reader["IsLocked"];
                          }
@@ -52,7 +52,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-        public static int AddNewTestAppointment(int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
+        public static int AddNewTestAppointment(int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, float PaidFees, int CreatedByUserID, bool IsLocked)
         {
             int TestAppointmentID = -1;
              string query = @"INSERT INTO TestAppointments (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked)
@@ -90,7 +90,7 @@ namespace DVLD_DataAccess
 
             return TestAppointmentID;
         }
-        public static bool UpdateTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
+        public static bool UpdateTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, float PaidFees, int CreatedByUserID, bool IsLocked)
         {
             int rowsAffected = 0;
             string query = @"UPDATE TestAppointments  

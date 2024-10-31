@@ -83,6 +83,16 @@ namespace DVLD_DivideAndConquer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Applicant64 {
+            get {
+                object obj = ResourceManager.GetObject("Applicant64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap application__64 {
             get {
                 object obj = ResourceManager.GetObject("application -64", resourceCulture);
@@ -153,6 +163,36 @@ namespace DVLD_DivideAndConquer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel2_32 {
+            get {
+                object obj = ResourceManager.GetObject("cancel2-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel2_50 {
+            get {
+                object obj = ResourceManager.GetObject("cancel2-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel2_64 {
+            get {
+                object obj = ResourceManager.GetObject("cancel2-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap change__45 {
             get {
                 object obj = ResourceManager.GetObject("change -45", resourceCulture);
@@ -166,6 +206,26 @@ namespace DVLD_DivideAndConquer.Properties {
         internal static System.Drawing.Bitmap close_45 {
             get {
                 object obj = ResourceManager.GetObject("close-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap created_by2_64 {
+            get {
+                object obj = ResourceManager.GetObject("created by2-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Created_by64 {
+            get {
+                object obj = ResourceManager.GetObject("Created by64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +286,16 @@ namespace DVLD_DivideAndConquer.Properties {
         internal static System.Drawing.Bitmap erase_45 {
             get {
                 object obj = ResourceManager.GetObject("erase-45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fees64 {
+            get {
+                object obj = ResourceManager.GetObject("Fees64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,6 +563,46 @@ namespace DVLD_DivideAndConquer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save32 {
+            get {
+                object obj = ResourceManager.GetObject("save32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save50 {
+            get {
+                object obj = ResourceManager.GetObject("save50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save64 {
+            get {
+                object obj = ResourceManager.GetObject("save64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Setting_64 {
             get {
                 object obj = ResourceManager.GetObject("Setting-64", resourceCulture);
@@ -523,9 +633,49 @@ namespace DVLD_DivideAndConquer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Status {
+            get {
+                object obj = ResourceManager.GetObject("Status", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status64 {
+            get {
+                object obj = ResourceManager.GetObject("Status64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap team_64 {
             get {
                 object obj = ResourceManager.GetObject("team 64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title64 {
+            get {
+                object obj = ResourceManager.GetObject("Title64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap type64 {
+            get {
+                object obj = ResourceManager.GetObject("type64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

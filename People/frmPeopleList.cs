@@ -1,4 +1,5 @@
-﻿using DVLD_Business;
+﻿using DVDL_Classes;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,20 +92,12 @@ namespace DVLD_DivideAndConquer.People
 
         private void dgvPeopleList_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            DataGridViewCellStyle style1 = new DataGridViewCellStyle();
-            //style1.ForeColor = Color.LightCyan;
-            style1.BackColor = Color.LightGreen;
-            if (e.RowIndex > -1)
-                dgvPeopleList.Rows[e.RowIndex].DefaultCellStyle = style1;
+            clsGlobal.DataGridView_CellMouseMove(sender, e);
         }
 
         private void dgvPeopleList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
-            //style1.ForeColor = Color.LightCyan;
-            style2.BackColor = Color.White;
-            if (e.RowIndex > -1)
-                dgvPeopleList.Rows[e.RowIndex].DefaultCellStyle = style2;
+            clsGlobal.DataGridView_CellMouseLeave(sender, e);
 
         }
         /*

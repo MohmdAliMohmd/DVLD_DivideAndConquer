@@ -11,7 +11,7 @@ namespace DVLD_Business
         public int TestTypeID { set; get; }
         public string TestTypeTitle { set; get; }
         public string TestTypeDescription { set; get; }
-        public decimal TestTypeFees { set; get; }
+        public float TestTypeFees { set; get; }
 
         public clsTestType()
         {
@@ -21,7 +21,7 @@ namespace DVLD_Business
             this.TestTypeFees = -1;
             Mode = enMode.AddNew;
         }
-        private clsTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        private clsTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
         {
             this.TestTypeID = TestTypeID;
             this.TestTypeTitle = TestTypeTitle;
@@ -50,7 +50,7 @@ namespace DVLD_Business
         {
             string TestTypeTitle = "";
             string TestTypeDescription = "";
-            decimal TestTypeFees = -1;
+            float TestTypeFees = -1;
 
             bool IsFound = clsTestTypeData.GetTestTypeByID(TestTypeID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees);
 

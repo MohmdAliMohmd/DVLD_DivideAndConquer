@@ -12,7 +12,7 @@ namespace DVLD_Business
         public int TestTypeID { set; get; }
         public int LocalDrivingLicenseApplicationID { set; get; }
         public DateTime AppointmentDate { set; get; }
-        public decimal PaidFees { set; get; }
+        public float PaidFees { set; get; }
         public int CreatedByUserID { set; get; }
         public bool IsLocked { set; get; }
 
@@ -27,7 +27,7 @@ namespace DVLD_Business
             this.IsLocked = false;
             Mode = enMode.AddNew;
         }
-        private clsTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
+        private clsTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, float PaidFees, int CreatedByUserID, bool IsLocked)
         {
             this.TestAppointmentID = TestAppointmentID;
             this.TestTypeID = TestTypeID;
@@ -60,7 +60,7 @@ namespace DVLD_Business
             int TestTypeID = -1;
             int LocalDrivingLicenseApplicationID = -1;
             DateTime AppointmentDate = DateTime.MinValue;
-            decimal PaidFees = -1;
+            float PaidFees = -1;
             int CreatedByUserID = -1;
             bool IsLocked = false;
 

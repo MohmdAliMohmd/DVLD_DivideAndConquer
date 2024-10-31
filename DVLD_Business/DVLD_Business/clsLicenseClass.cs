@@ -13,7 +13,7 @@ namespace DVLD_Business
         public string ClassDescription { set; get; }
         public byte MinimumAllowedAge { set; get; }
         public byte DefaultValidityLength { set; get; }
-        public decimal ClassFees { set; get; }
+        public float ClassFees { set; get; }
 
         public clsLicenseClass()
         {
@@ -25,7 +25,7 @@ namespace DVLD_Business
             this.ClassFees = -1;
             Mode = enMode.AddNew;
         }
-        private clsLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, decimal ClassFees)
+        private clsLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             this.LicenseClassID = LicenseClassID;
             this.ClassName = ClassName;
@@ -58,7 +58,7 @@ namespace DVLD_Business
             string ClassDescription = "";
             byte MinimumAllowedAge = 0;
             byte DefaultValidityLength = 0;
-            decimal ClassFees = -1;
+            float ClassFees = -1;
 
             bool IsFound = clsLicenseClassData.GetLicenseClassByID(LicenseClassID, ref ClassName, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees);
 
