@@ -305,6 +305,7 @@
     <Content Include="Resources\minimize -45.png" />
     <None Include="Resources\national no  32.png" />
     <Content Include="Resources\new -45.png" />
+    <None Include="Resources\Next50.png" />
     <Content Include="Resources\person  32.png" />
     <Content Include="Resources\person.png" />
     <None Include="Resources\phone  32.png" />

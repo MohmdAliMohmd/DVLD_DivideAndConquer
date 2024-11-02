@@ -161,10 +161,7 @@ namespace DVLD_DivideAndConquer.User
             btnSave.Enabled = _ReadyToSave();
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLogInInfo"];
-        }
+      
 
         private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
         {
@@ -267,6 +264,11 @@ namespace DVLD_DivideAndConquer.User
             {
                 errorProvider1.SetError(txtConfirmPW, null);
             };
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLogInInfo"];
         }
     }
 }

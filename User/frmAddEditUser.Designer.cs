@@ -33,7 +33,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tcUserInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
-            this.btnNext = new System.Windows.Forms.Button();
+            this.ctrlPersonCardWithFilter1 = new DVLD_DivideAndConquer.People.Controls.ctrlPersonCardWithFilter();
             this.tpLogInInfo = new System.Windows.Forms.TabPage();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -48,12 +48,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnNext = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlPersonCardWithFilter1 = new DVLD_DivideAndConquer.People.Controls.ctrlPersonCardWithFilter();
             this.tcUserInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpLogInInfo.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(937, -1);
+            this.button1.Location = new System.Drawing.Point(860, -4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(24, 17);
             this.button1.TabIndex = 132;
@@ -97,8 +97,8 @@
             // 
             // tpPersonalInfo
             // 
-            this.tpPersonalInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tpPersonalInfo.Controls.Add(this.btnNext);
+            this.tpPersonalInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tpPersonalInfo.Location = new System.Drawing.Point(4, 34);
             this.tpPersonalInfo.Name = "tpPersonalInfo";
             this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(3);
@@ -107,37 +107,37 @@
             this.tpPersonalInfo.Text = "Personal Info";
             this.tpPersonalInfo.UseVisualStyleBackColor = true;
             // 
-            // btnNext
+            // ctrlPersonCardWithFilter1
             // 
-            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Location = new System.Drawing.Point(748, 431);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(258, 45);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.FilterEnable = true;
+            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 0);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(6);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPersonBTN = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1011, 422);
+            this.ctrlPersonCardWithFilter1.TabIndex = 1;
+            this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
             // 
             // tpLogInInfo
             // 
             this.tpLogInInfo.Controls.Add(this.btnCancel);
             this.tpLogInInfo.Controls.Add(this.btnSave);
             this.tpLogInInfo.Controls.Add(this.lblUserID);
-            this.tpLogInInfo.Controls.Add(this.pictureBox4);
             this.tpLogInInfo.Controls.Add(this.label2);
             this.tpLogInInfo.Controls.Add(this.label1);
-            this.tpLogInInfo.Controls.Add(this.pictureBox1);
             this.tpLogInInfo.Controls.Add(this.txtConfirmPW);
             this.tpLogInInfo.Controls.Add(this.chkShowPassword);
             this.tpLogInInfo.Controls.Add(this.chkIsActive);
             this.tpLogInInfo.Controls.Add(this.label6);
-            this.tpLogInInfo.Controls.Add(this.pictureBox3);
             this.tpLogInInfo.Controls.Add(this.txtPassword);
             this.tpLogInInfo.Controls.Add(this.label5);
-            this.tpLogInInfo.Controls.Add(this.pictureBox2);
             this.tpLogInInfo.Controls.Add(this.txtUsername);
+            this.tpLogInInfo.Controls.Add(this.pictureBox4);
+            this.tpLogInInfo.Controls.Add(this.pictureBox1);
+            this.tpLogInInfo.Controls.Add(this.pictureBox3);
+            this.tpLogInInfo.Controls.Add(this.pictureBox2);
             this.tpLogInInfo.Location = new System.Drawing.Point(4, 34);
             this.tpLogInInfo.Name = "tpLogInInfo";
             this.tpLogInInfo.Padding = new System.Windows.Forms.Padding(3);
@@ -152,12 +152,14 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(475, 398);
+            this.btnCancel.Image = global::DVLD_DivideAndConquer.Properties.Resources.cancel2_50;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Location = new System.Drawing.Point(392, 392);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(380, 43);
+            this.btnCancel.Size = new System.Drawing.Size(148, 43);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "&Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -166,12 +168,14 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(91, 398);
+            this.btnSave.Image = global::DVLD_DivideAndConquer.Properties.Resources.save50;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Location = new System.Drawing.Point(544, 392);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(380, 43);
+            this.btnSave.Size = new System.Drawing.Size(148, 43);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "&Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -285,6 +289,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::DVLD_DivideAndConquer.Properties.Resources.Next50;
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNext.Location = new System.Drawing.Point(853, 431);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(148, 43);
+            this.btnNext.TabIndex = 3;
+            this.btnNext.Text = "Next";
+            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::DVLD_DivideAndConquer.Properties.Resources.id_45;
@@ -339,19 +358,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.FilterEnable = true;
-            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 0);
-            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(6);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPersonBTN = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1011, 422);
-            this.ctrlPersonCardWithFilter1.TabIndex = 1;
-            this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
-            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -390,7 +396,6 @@
         private System.Windows.Forms.TabControl tcUserInfo;
         private System.Windows.Forms.TabPage tpPersonalInfo;
         private System.Windows.Forms.TabPage tpLogInInfo;
-        private System.Windows.Forms.Button btnNext;
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -409,5 +414,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnNext;
     }
 }

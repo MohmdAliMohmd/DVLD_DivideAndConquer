@@ -29,7 +29,7 @@ namespace DVLD_DivideAndConquer.Applications.Controls
         {
             InitializeComponent();
         }
-        void _ResetApplicationInfo()
+      public  void LoadDefaultValues()
         {
             _ApplicationID = -1;
             llblViewPersonInfo.Enabled = false;
@@ -67,7 +67,7 @@ namespace DVLD_DivideAndConquer.Applications.Controls
             {
                 _ApplicationID = -1;
                 MessageBox.Show($"No application Found with ApplicationID: {ApplicationID}", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _ResetApplicationInfo();
+                LoadDefaultValues();
             }
             else
                 _FillApplicationInfo();
