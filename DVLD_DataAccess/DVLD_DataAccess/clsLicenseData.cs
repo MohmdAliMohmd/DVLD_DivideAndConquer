@@ -242,5 +242,117 @@ namespace DVLD_DataAccess
 
             return dt;
         }
+
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            int ActiveLicenseID = -1;
+            string query = @"SELECT Licenses.LicenseID
+                                FROM Licenses 
+                                INNER JOIN
+                                     Drivers 
+                                ON 
+                                    Licenses.DriverID = Drivers.DriverID
+                                WHERE        
+                                Drivers.PersonID = @PersonID
+                                and
+                                Licenses.LicenseClass = @LicenseClassID
+                                and
+                                Licenses.IsActive = 1";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PersonID", PersonID);
+                        command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                        object result = command.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int ActiveID))
+                        {
+                            ActiveLicenseID = ActiveID;
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ActiveLicenseID = -1;
+            }
+
+            return ActiveLicenseID;
+
+        }
+        public static bool DeactivateLicense(int LicenseID)
+        {
+            int AffectedRows = 0;
+            string query = @"UPDATE [dbo].[Licenses]
+                               SET [IsActive]        = 0
+                             WHERE LicenseID = @LicenseID";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                        AffectedRows = command.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                AffectedRows = 0;
+            }
+            return AffectedRows > 0;
+        }
+
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+            DataTable dt = new DataTable();
+            string ABuHadHudQuery = @"SELECT     
+                                         Licenses.LicenseID,
+                                         ApplicationID,
+		                                 LicenseClasses.ClassName, Licenses.IssueDate, 
+		                                 Licenses.ExpirationDate, Licenses.IsActive
+                                         FROM Licenses INNER JOIN
+                                              LicenseClasses ON Licenses.LicenseClass = LicenseClasses.LicenseClassID
+                                          where DriverID=@DriverID
+                                          Order By IsActive Desc, ExpirationDate Desc";
+            string query = @"select * from Licenses where DriverID = @DriverID order by IsActive desc";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@DriverID", DriverID);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                            else
+                                dt = null;
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
+
     }
 }

@@ -11,44 +11,44 @@ namespace DVLD_DataAccess
             bool isFound = false;
             string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
             try
-            { 
-              using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                 {         
-                using(SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);        
-                    connection.Open();
-                     using (SqlDataReader reader = command.ExecuteReader())      
-                          {
-        
-                        if(reader.Read())
+                        command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            isFound = true;
-        
-                    ApplicantPersonID = (int)reader["ApplicantPersonID"];
-                    ApplicationDate = (DateTime)reader["ApplicationDate"];
-                    ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                    ApplicationStatus = (byte)reader["ApplicationStatus"];
-                    LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = (float)reader["PaidFees"];
-                    CreatedByUserID = (int)reader["CreatedByUserID"];
-                         }
-                        else
-                         {
-                            isFound = false;
-                         }
 
-                  }
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                ApplicantPersonID = (int)reader["ApplicantPersonID"];
+                                ApplicationDate = (DateTime)reader["ApplicationDate"];
+                                ApplicationTypeID = (int)reader["ApplicationTypeID"];
+                                ApplicationStatus = (byte)reader["ApplicationStatus"];
+                                LastStatusDate = (DateTime)reader["LastStatusDate"];
+                                PaidFees = Convert.ToSingle(reader["PaidFees"]);
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+                            }
+                            else
+                            {
+                                isFound = false;
+                            }
+
+                        }
+                    }
                 }
-              }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 isFound = false;
             }
             finally
             {
-               
+
             }
 
             return isFound;
@@ -56,38 +56,39 @@ namespace DVLD_DataAccess
         public static int AddNewApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, byte ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             int ApplicationID = -1;
-             string query = @"INSERT INTO Applications (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+            string query = @"INSERT INTO Applications (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID)
                             SELECT SCOPE_IDENTITY();";
-        try{
-             using( SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {       
-                   using (SqlCommand command = new SqlCommand(query, connection))
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
 
-            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            command.Parameters.AddWithValue("@PaidFees", PaidFees);
-            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                        command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+                        command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                        command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+                        command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+                        command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                        command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
                         connection.Open();
                         object result = command.ExecuteScalar();
-                        if(result != null && int.TryParse(result.ToString(), out int insertedID))
-                      {
-                    ApplicationID = insertedID;
-                       }
+                        if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        {
+                            ApplicationID = insertedID;
+                        }
                     }
-                 }
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
             finally
             {
-               
+
             }
 
             return ApplicationID;
@@ -105,88 +106,91 @@ namespace DVLD_DataAccess
                             PaidFees = @PaidFees, 
                             CreatedByUserID = @CreatedByUserID
                             WHERE ApplicationID = @ApplicationID";
-            try{
-                   using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using(SqlCommand command = new SqlCommand(query, connection))
-                        {
 
-            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            command.Parameters.AddWithValue("@PaidFees", PaidFees);
-            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-                            connection.Open();
-                            rowsAffected = command.ExecuteNonQuery();
-                         }
-                      }
+                        command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+                        command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                        command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+                        command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+                        command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                        command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
                 }
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
 
             finally
             {
-                
+
             }
 
             return (rowsAffected > 0);
         }
-       
+
         public static bool DeleteApplication(int ApplicationID)
         {
             int rowsAffected = 0;
             string query = @"Delete Applications 
                                 where ApplicationID = @ApplicationID";
-            try{
-                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using(SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-                            connection.Open();
-                            rowsAffected = command.ExecuteNonQuery();
-                         }            
+                        command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
                     }
-                 }
-                catch(Exception ex)
-                {
                 }
-                finally
-                {
-                
-                }
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+
+            }
             return (rowsAffected > 0);
         }
         public static bool IsApplicationExist(int ApplicationID)
         {
             bool isFound = false;
             string query = "SELECT Found=1 FROM Applications WHERE ApplicationID = @ApplicationID";
-            try{
-                    using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                       {
-                            using(SqlCommand command = new SqlCommand(query, connection))
-                            {
-                                command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-                                connection.Open();
-                                using(SqlDataReader reader = command.ExecuteReader())
-                                    {
-                                        isFound = reader.HasRows;
-                                    }
-                              }
-                        }
-                }
-                 catch(Exception ex)
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                  isFound = false;
-                 }
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            isFound = reader.HasRows;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
             finally
             {
-               
+
             }
 
             return isFound;
@@ -195,29 +199,30 @@ namespace DVLD_DataAccess
         {
             DataTable dt = new DataTable();
             string query = "SELECT * FROM Applications";
-            try{
-                    using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using(SqlCommand command = new SqlCommand(query, connection))
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            connection.Open();
-                            using(SqlDataReader reader = command.ExecuteReader())
-                                {
-                                    if(reader.HasRows)
-                                {
-                                    dt.Load(reader);
-                                }
-                          }
-                     }  
-                   }
-             }
-            catch(Exception ex)
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
             {
 
             }
             finally
             {
-                
+
             }
 
             return dt;

@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Runtime.CompilerServices;
 using DVLD_DataAccess;
 
 namespace DVLD_Business
@@ -82,17 +83,17 @@ namespace DVLD_Business
 
             bool IsFound = clsLicenseData.GetLicenseByID(LicenseID, ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID);
 
-            if(IsFound)
+            if (IsFound)
                 return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
             else
                 return null;
         }
         public bool Save()
         {
-            switch(Mode)
+            switch (Mode)
             {
                 case enMode.AddNew:
-                    if(_AddNewLicense())
+                    if (_AddNewLicense())
                     {
                         Mode = enMode.Update;
                         return true;
@@ -111,5 +112,36 @@ namespace DVLD_Business
         {
             return clsLicenseData.GetAllLicenses();
         }
+
+        public static bool IsLicenseExistByPersonID(int PersonID, int LicenseClassID)
+        {
+            return (clsLicenseData.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID) != -1);
+        }
+
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            return clsLicenseData.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);
+        }
+
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+            return clsLicenseData.GetDriverLicenses(DriverID);
+        }
+
+        public bool IsLicenseExpired()
+        {
+            return (this.ExpirationDate < DateTime.Now);
+        }
+
+        public bool DeActivateCurrentLicense()
+        {
+            return clsLicenseData.DeactivateLicense(this.LicenseID);
+        }
+
+        //public static int GetAvtiveLicenseID()
+        //{
+        //    return clsLicense.GetActiveLicenseIDByPersonID(CallConvT)
+        //        }
+
     }
 }

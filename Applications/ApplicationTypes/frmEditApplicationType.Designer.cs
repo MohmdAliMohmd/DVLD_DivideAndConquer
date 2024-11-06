@@ -64,10 +64,8 @@
             // 
             this.txtFees.Location = new System.Drawing.Point(231, 173);
             this.txtFees.Name = "txtFees";
-            this.txtFees.PasswordChar = '*';
             this.txtFees.Size = new System.Drawing.Size(300, 33);
             this.txtFees.TabIndex = 15;
-            this.txtFees.UseSystemPasswordChar = true;
             this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // label5
@@ -211,7 +209,7 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // frmApplicationType
+            // frmEditApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,8 +231,8 @@
             this.Controls.Add(this.txtTitle);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "frmApplicationType";
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "frmEditApplicationType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmApplicationType";
             this.Load += new System.EventHandler(this.frmApplicationType_Load);

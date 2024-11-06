@@ -8,20 +8,23 @@ namespace DVLD_Business
     {
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
-        public int TestTypeID { set; get; }
+
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 }
+        public clsTestType.enTestType TestTypeID { get; set; }
+       // public int TestTypeID { set; get; }
         public string TestTypeTitle { set; get; }
         public string TestTypeDescription { set; get; }
         public float TestTypeFees { set; get; }
 
         public clsTestType()
         {
-            this.TestTypeID = -1;
+            this.TestTypeID = clsTestType.enTestType.VisionTest;
             this.TestTypeTitle = "";
             this.TestTypeDescription = "";
             this.TestTypeFees = -1;
             Mode = enMode.AddNew;
         }
-        private clsTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
+        private clsTestType(clsTestType.enTestType TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
         {
             this.TestTypeID = TestTypeID;
             this.TestTypeTitle = TestTypeTitle;
@@ -31,28 +34,28 @@ namespace DVLD_Business
         }
         private bool _AddNewTestType()
         {
-            this.TestTypeID = (int)clsTestTypeData.AddNewTestType(this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
-            return (this.TestTypeID != -1);
+            this.TestTypeID = (clsTestType.enTestType)clsTestTypeData.AddNewTestType(this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+            return (this.TestTypeTitle != String.Empty);
         }
         private bool _UpdateTestType()
         {
-            return clsTestTypeData.UpdateTestType(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+            return clsTestTypeData.UpdateTestType((int)this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
         }
-        public static bool DeleteTestType(int TestTypeID)
+        public static bool DeleteTestType(clsTestType.enTestType TestTypeID)
         {
-            return clsTestTypeData.DeleteTestType(TestTypeID);
+            return clsTestTypeData.DeleteTestType((int)TestTypeID);
         }
-        public static bool IsTestTypeExist(int TestTypeID)
+        public static bool IsTestTypeExist(clsTestType.enTestType TestTypeID)
         {
-            return clsTestTypeData.IsTestTypeExist(TestTypeID);
+            return clsTestTypeData.IsTestTypeExist((int)TestTypeID);
         }
-        public static clsTestType Find(int TestTypeID)
+        public static clsTestType Find(clsTestType.enTestType TestTypeID)
         {
             string TestTypeTitle = "";
             string TestTypeDescription = "";
             float TestTypeFees = -1;
 
-            bool IsFound = clsTestTypeData.GetTestTypeByID(TestTypeID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees);
+            bool IsFound = clsTestTypeData.GetTestTypeByID((int)TestTypeID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees);
 
             if(IsFound)
                 return new clsTestType(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);

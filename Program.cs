@@ -1,6 +1,8 @@
-﻿using DVLD_DivideAndConquer.Applications.ApplicationTypes;
+﻿using DVLD_Business;
+using DVLD_DivideAndConquer.Applications.ApplicationTypes;
 using DVLD_DivideAndConquer.Drivers;
 using DVLD_DivideAndConquer.People;
+using DVLD_DivideAndConquer.Tests.Test_Types;
 using DVLD_DivideAndConquer.User;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,12 @@ namespace DVLD_DivideAndConquer
             //Application.Run(new frmTest());
             //Application.Run(new frmAddEditUser());
             //Application.Run(new frmChangePassword(1));
-            Application.Run(new frmPeopleList());
-            Application.Run(new frmDriversList());
+            //Application.Run(new frmPeopleList());
+            //Application.Run(new frmDriversList());
+            Application.Run(new frmTestTypesList());
             Application.Run(new frmApplicationTypesList());
+            Application.Run(new frmEditApplicationType((int)clsTestType.enTestType.VisionTest));
+
         }
     }
 }

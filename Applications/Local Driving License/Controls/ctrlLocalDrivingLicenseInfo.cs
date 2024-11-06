@@ -41,14 +41,14 @@ namespace DVLD_DivideAndConquer.Applications.Local_Driving_License.Controls
             lblPassedTests.Text = "0";
         }
 
-        void _FillLocalDrivingLicenseInfo()
-        {
+        //void _FillLocalDrivingLicenseInfo()
+        //{
             
-            
+        //    _LicenseID = _LocalDrivingLicenseApplication.
             
             
             
 
-        }
+        //}
     }
 }

@@ -83,5 +83,30 @@ namespace DVLD_Business
         {
             return clsDriverData.GetAllDrivers();
         }
+
+        public static clsDriver FindByDriverID(int DriverID)
+        {
+
+            int PersonID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
+            bool isFound = clsDriverData.GetDriverInfoByID(DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate);
+            if (isFound)
+                return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+        }
+
+        public static clsDriver FindByPersonID(int PersonID)
+        {
+            int DriverID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
+            bool isFound = clsDriverData.GetDriverInfoByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate);
+            if (isFound)
+                return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+        }
     }
 }

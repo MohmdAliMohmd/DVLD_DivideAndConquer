@@ -87,5 +87,43 @@ namespace DVLD_Business
         {
             return clsTestData.GetAllTests();
         }
+
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            return clsTestData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
+        }
+
+        //public static clsTest Find(int TestID)
+        //{
+        //    int TestAppointmentID = -1;
+        //    bool TestResult = false;
+        //    string Notes = string.Empty;
+        //    int CreatedByUserID = -1;
+        //    bool isFound = clsTestData.GetTestByID(TestID, ref TestAppointmentID, ref TestResult, ref Notes,
+        //  ref CreatedByUserID);
+        //    if (isFound)
+        //        return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+        //    else
+        //        return null;
+        //}
+
+        public static clsTest FindLastTestPerPersonAndLicenseClass(int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
+        {
+            int TestID = -1;
+            int TestAppointmentID = -1;
+            bool TestResult = false;
+            string Notes = string.Empty;
+            int CreatedByUserID = -1;
+            bool isFound = clsTestData.GetLastTestByPersonAndTestTypeAndLicenseClass(PersonID, (int)TestTypeID, LicenseClassID, ref TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID);
+            if (isFound)
+                return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+            else
+                return null;
+        }
+
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
+        }
     }
 }

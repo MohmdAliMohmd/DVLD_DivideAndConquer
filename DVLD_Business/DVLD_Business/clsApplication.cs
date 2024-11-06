@@ -13,9 +13,32 @@ namespace DVLD_Business
             ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7
         };
 
-
         public enMode Mode = enMode.AddNew;
+
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
+        public enApplicationStatus ApplicationStatus { set; get; }
+        public string StatusText
+        {
+           get{
+                switch (ApplicationStatus)
+                {
+                    case enApplicationStatus.New:
+                        return "New";
+                        break;
+
+                    case enApplicationStatus.Cancelled:
+                        return "Cancelled";
+                        break;
+
+                    case enApplicationStatus.Completed:
+                        return "Completed";
+                        break;
+
+                    default:
+                        return "UnKnown";
+                }
+            }
+        }
         public string ApplicantFullName
         {
             get
@@ -24,15 +47,17 @@ namespace DVLD_Business
             }
         }
         public int ApplicationID { set; get; }
+        public clsPerson PersonInfo { get; set; }
         public clsApplicationType ApplicationTypeInfo;
         public int ApplicantPersonID { set; get; }
         public DateTime ApplicationDate { set; get; }
         public int ApplicationTypeID { set; get; }
-        public enApplicationStatus ApplicationStatus { set; get; }
+       
         public DateTime LastStatusDate { set; get; }
         public float PaidFees { set; get; }
         public int CreatedByUserID { set; get; }
         public clsUser CreatedByUserInfo;
+     
         public clsApplication()
         {
             this.ApplicationID = -1;
@@ -45,10 +70,12 @@ namespace DVLD_Business
             this.CreatedByUserID = -1;
             Mode = enMode.AddNew;
         }
-        private clsApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+        private clsApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, 
+            enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
             this.ApplicantPersonID = ApplicantPersonID;
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeInfo = clsApplicationType.Find(ApplicationTypeID);
@@ -149,6 +176,34 @@ namespace DVLD_Business
         public static DataTable GetAllApplications()
         {
             return clsApplicationData.GetAllApplications();
+        }
+        public static bool DoesPersonHaveActiveApplication(int PersonID, int ApplicationID)
+        {
+            return clsApplicationData.DoesPersonHaveActiveAppication(PersonID, ApplicationID);
+        }
+
+        public bool DoesPersonHaveActiveApplication(int ApplicationID)
+        {
+            return clsApplicationData.DoesPersonHaveActiveAppication(this.ApplicantPersonID, ApplicationID);
+        }
+
+        public static int GetActiveApplicationID(int PersonID, clsApplication.enApplicationType ApplicationTypeID)
+        {
+            return clsApplicationData.GetActiveApplicationIDForPersonByApplicationType(PersonID, (int)ApplicationTypeID);
+        }
+
+        public static int GetActiveApplicationIDForPersonByLicenseClass(int PersonID, clsApplication.enApplicationType ApplicationTypeID, int LicenseClassID)
+        {
+            return clsApplicationData.GetActiveApplicationIDForPersonByLicenseClass(PersonID, (int)ApplicationTypeID, LicenseClassID);
+        }
+
+        public int GetActiveApplicationID(clsApplication.enApplicationType ApplicationTypeID)
+        {
+            return clsApplicationData.GetActiveApplicationIDForPersonByApplicationType(this.ApplicantPersonID, (int)ApplicationTypeID);
+        }
+        public bool Delete()
+        {
+            return clsApplicationData.DeleteApplication(this.ApplicationID);
         }
     }
 }
