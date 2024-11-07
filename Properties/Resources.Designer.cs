@@ -443,6 +443,26 @@ namespace DVLD_DivideAndConquer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap License_Class_64 {
+            get {
+                object obj = ResourceManager.GetObject("License Class 64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap License_Class64 {
+            get {
+                object obj = ResourceManager.GetObject("License Class64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap local__45 {
             get {
                 object obj = ResourceManager.GetObject("local -45", resourceCulture);
@@ -476,6 +496,16 @@ namespace DVLD_DivideAndConquer.Properties {
         internal static System.Drawing.Bitmap MainBackGround {
             get {
                 object obj = ResourceManager.GetObject("MainBackGround", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainBackGround1 {
+            get {
+                object obj = ResourceManager.GetObject("MainBackGround1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

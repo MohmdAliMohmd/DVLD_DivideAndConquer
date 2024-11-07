@@ -67,6 +67,22 @@ namespace DVLD_Business
             else
                 return null;
         }
+        public static clsLicenseClass Find(string ClassName)
+        {
+            int LicenseClassID = -1;
+
+            string ClassDescription = "";
+            byte MinimumAllowedAge = 18;
+            byte DefaultValidityLength = 10;
+            float ClassFees = 0;
+            if (clsLicenseClassData.FindByClassName(ClassName, ref LicenseClassID, ref ClassDescription,
+            ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+            {
+                return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees);
+            }
+            else
+                return null;
+        }
         public bool Save()
         {
             switch(Mode)

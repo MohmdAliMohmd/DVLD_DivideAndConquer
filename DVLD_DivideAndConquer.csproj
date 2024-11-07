@@ -70,6 +70,12 @@
     <Compile Include="Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseInfo.Designer.cs">
       <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Local Driving License\frmAddEditLocalLicensesDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmAddEditLocalLicensesDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmAddEditLocalLicensesDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\frmDriversList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseInfo.resx">
       <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmAddEditLocalLicensesDrivingLicenseApplication.resx">
+      <DependentUpon>frmAddEditLocalLicensesDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drivers\frmDriversList.resx">
       <DependentUpon>frmDriversList.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +281,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Licenses\Controls\" />
+    <Folder Include="Licenses\Local Licenses\Controls\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +326,8 @@
     <None Include="Resources\international 32.png" />
     <Content Include="Resources\international-45.png" />
     <Content Include="Resources\license 50.png" />
+    <None Include="Resources\License Class 64.png" />
+    <None Include="Resources\License Class64.png" />
     <Content Include="Resources\license-45.png" />
     <Content Include="Resources\local -45.png" />
     <Content Include="Resources\lock.png" />
@@ -322,6 +335,7 @@
     <Content Include="Resources\LogIn-64.png" />
     <Content Include="Resources\logout 50.png" />
     <Content Include="Resources\MainBackGround.png" />
+    <None Include="Resources\MainBackGround1.png" />
     <Content Include="Resources\manage -45.png" />
     <Content Include="Resources\minimize -45.png" />
     <None Include="Resources\national no  32.png" />

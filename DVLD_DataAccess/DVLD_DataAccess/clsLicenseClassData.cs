@@ -29,7 +29,7 @@ namespace DVLD_DataAccess
                     ClassDescription = (string)reader["ClassDescription"];
                     MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
                     DefaultValidityLength = (byte)reader["DefaultValidityLength"];
-                    ClassFees = (float)reader["ClassFees"];
+                    ClassFees = Convert.ToSingle(reader["ClassFees"]);
                          }
                         else
                          {
@@ -212,6 +212,46 @@ namespace DVLD_DataAccess
             }
 
             return dt;
+        }
+
+        public static bool FindByClassName(string ClassName, ref int LicenseClassID, ref string ClassDescription,
+           ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
+        {
+            bool isFound = false;
+            string query = @"select * from LicenseClasses where ClassName = @ClassName;";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ClassName", ClassName);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+                                LicenseClassID = (int)reader["LicenseClassID"];
+                                ClassDescription = (string)reader["ClassDescription"];
+                                MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                                DefaultValidityLength = (byte)reader["PaidFees"];
+                                ClassFees = Convert.ToSingle(reader["IsActive"]);
+
+                            }
+                            else
+                            {
+                                isFound = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            return isFound;
         }
     }
 }

@@ -1,4 +1,8 @@
 ﻿using DVDL_Classes;
+using DVLD_DivideAndConquer.Applications.Local_Driving_License;
+using DVLD_DivideAndConquer.Drivers;
+using DVLD_DivideAndConquer.People;
+using DVLD_DivideAndConquer.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +36,42 @@ namespace DVLD_DivideAndConquer
             clsGlobal.CurrentUser = null;
             _LoginForm.Show();
             this.Close();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditLocalLicensesDrivingLicenseApplication frm = new frmAddEditLocalLicensesDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPeopleList frm = new frmPeopleList();
+            frm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDriversList frm = new frmDriversList();
+            frm.ShowDialog();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserList frm = new frmUserList();
+            frm.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
     }
 }

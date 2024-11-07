@@ -43,11 +43,12 @@ namespace DVLD_DivideAndConquer.Applications.Local_Driving_License.Controls
 
         //void _FillLocalDrivingLicenseInfo()
         //{
-            
-        //    _LicenseID = _LocalDrivingLicenseApplication.
-            
-            
-            
+
+        //    _LicenseID = _LocalDrivingLicenseApplication.GetA
+
+
+
+
 
         //}
     }

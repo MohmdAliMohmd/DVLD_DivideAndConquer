@@ -1,5 +1,6 @@
 ﻿using DVLD_Business;
 using DVLD_DivideAndConquer.Applications.ApplicationTypes;
+using DVLD_DivideAndConquer.Applications.Local_Driving_License;
 using DVLD_DivideAndConquer.Drivers;
 using DVLD_DivideAndConquer.People;
 using DVLD_DivideAndConquer.Tests.Test_Types;
@@ -29,9 +30,10 @@ namespace DVLD_DivideAndConquer
             //Application.Run(new frmChangePassword(1));
             //Application.Run(new frmPeopleList());
             //Application.Run(new frmDriversList());
-            Application.Run(new frmTestTypesList());
-            Application.Run(new frmApplicationTypesList());
-            Application.Run(new frmEditApplicationType((int)clsTestType.enTestType.VisionTest));
+            //Application.Run(new frmTestTypesList());
+            //Application.Run(new frmApplicationTypesList());
+            //Application.Run(new frmAddEditLocalLicensesDrivingLicenseApplication());
+            //Application.Run(new frmEditApplicationType((int)clsTestType.enTestType.VisionTest));
 
         }
     }
